@@ -1,0 +1,52 @@
+{
+  "name": "qa-tracker-monorepo",
+  "version": "1.0.0",
+  "description": "QA Tracker - Full Stack Application",
+  "private": true,
+  "scripts": {
+    "setup": "node setup.js",
+    "dev": "pnpm run --parallel dev",
+    "dev:frontend": "pnpm --filter @qa-tracker/frontend dev",
+    "dev:backend": "pnpm --filter @qa-tracker/backend dev",
+    "build": "pnpm run --recursive build",
+    "build:frontend": "pnpm --filter @qa-tracker/frontend build",
+    "build:backend": "pnpm --filter @qa-tracker/backend build",
+    "start": "pnpm run --parallel start",
+    "start:frontend": "pnpm --filter @qa-tracker/frontend start",
+    "start:backend": "pnpm --filter @qa-tracker/backend start",
+    "lint": "pnpm run --recursive lint",
+    "lint:fix": "pnpm run --recursive lint:fix",
+    "format": "pnpm run --recursive format",
+    "test": "pnpm run --recursive test",
+    "test:watch": "pnpm run --recursive test:watch",
+    "clean": "pnpm run --recursive clean && rimraf node_modules .pnpm-store",
+    "install-deps": "pnpm install",
+    "type-check": "pnpm run --recursive type-check",
+    "update-deps": "pnpm update --recursive",
+    "local:dev": "pwsh -File dev-local.ps1",
+    "local:dev:bash": "./dev-local.sh",
+    "local:status": "pwsh -File check-status.ps1",
+    "ports:check": "netstat -ano | findstr :3000 && netstat -ano | findstr :3001"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@8.15.0",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "prettier": "^3.0.0",
+    "eslint": "^8.0.0",
+    "rimraf": "^5.0.0"
+  },
+  "keywords": [
+    "qa-tracker",
+    "monorepo",
+    "nextjs",
+    "nestjs",
+    "typescript"
+  ],
+  "author": "QA Tracker Team",
+  "license": "MIT"
+}
