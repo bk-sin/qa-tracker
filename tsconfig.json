@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
-    "target": "ES2022",
     "lib": [
-      "ES2022"
+      "dom",
+      "dom.iterable",
+      "es6"
     ],
     "allowJs": true,
     "skipLibCheck": true,
@@ -15,32 +16,41 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
     "baseUrl": ".",
     "paths": {
-      "@qa-tracker/backend/*": [
-        "./packages/backend/src/*"
+      "@/*": [
+        "./src/*"
       ],
-      "@qa-tracker/frontend/*": [
-        "./packages/frontend/src/*"
+      "@/components/*": [
+        "./src/components/*"
+      ],
+      "@/lib/*": [
+        "./src/lib/*"
+      ],
+      "@/types/*": [
+        "./src/types/*"
+      ],
+      "@/stores/*": [
+        "./src/stores/*"
+      ],
+      "@/hooks/*": [
+        "./src/hooks/*"
       ]
-    }
+    },
+    "target": "ES2017"
   },
   "include": [
-    "packages/*/src/**/*",
-    "packages/*/types/**/*"
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules",
-    ".next",
-    "dist",
-    "coverage"
-  ],
-  "references": [
-    {
-      "path": "./packages/backend"
-    },
-    {
-      "path": "./packages/frontend"
-    }
+    "node_modules"
   ]
 }
